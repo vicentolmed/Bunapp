@@ -1,0 +1,19 @@
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="16dp"
+android:paddingLeft="40dp">
+
+<TextView
+    android:id="@+id/item_name_clinicas"
+    android:text="Mexico"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textColor="@color/secondary_text"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+</LinearLayout>

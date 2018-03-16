@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Go!VetBunny</string>
+    <string name="title_activity_reference">ReferenceActivity</string>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="text_button">Login</string>
+    <string name="dont_have_account">No tienes cuenta, </string>
+    <string name="create_here"> crea una aquí</string>
+    <string name="estados_title">Estados disponibles</string>
+    <string name="paises_title">Países disponibles</string>
+    <string name="directory_title">Directorio</string>
+    <string name="commets_title">Sugerencias</string>
+    <string name="description1_dashboard">Directorio de médicos especialistas en exóticos</string>
+    <string name="description2_dashboard">Compártenos tus inquietudes y/o comentarios</string>
+    <string name="countries_title">Selecciona el país</string>
+    <string name="state_title">Selecciona el estado</string>
+    <string name="countries_searcher">TODOS</string>
+    <string name="button_search">Buscar</string>
+    <string name="contact_title">Contáctanos</string>
+    <string name="txt_facebook">Facebook</string>
+    <string name="txt_route">Ruta</string>
+</resources>

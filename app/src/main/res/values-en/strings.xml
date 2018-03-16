@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Go!VetBunny</string>
+    <string name="title_activity_reference">ReferenceActivity</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="text_button">Login</string>
+    <string name="directory_title">Directory</string>
+    <string name="commets_title">Comments</string>
+    <string name="description1_dashboard">Directory of exotic specialists</string>
+    <string name="description2_dashboard">Share your concerns and / or comments</string>
+    <string name="countries_title">Select the country</string>
+    <string name="state_title">Select the state</string>
+    <string name="countries_searcher">ALL</string>
+    <string name="button_search">Search</string>
+    <string name="contact_title">Contact us</string>
+    <string name="txt_facebook">Facebook</string>
+    <string name="txt_gmail">Gmail</string>
+    <string name="txt_route">Route</string>
+</resources>
