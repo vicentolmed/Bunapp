@@ -2,17 +2,24 @@ package com.hooki.bunapp.views;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.hooki.bunapp.Adapters.Clinicas;
 import com.hooki.bunapp.Adapters.Pais;
 import com.hooki.bunapp.Adapters.PaisAdapter;
 import com.hooki.bunapp.AsyncTask.DownloadPaisAsyncTask;
 import com.hooki.bunapp.R;
+import com.hooki.bunapp.SqliteDb.ClinicasContract;
+import com.hooki.bunapp.SqliteDb.ClinicasDbHelper;
+import com.hooki.bunapp.Utils.Utils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,7 +35,16 @@ public class PaisListActivity extends AppCompatActivity implements  DownloadPais
         setContentView(R.layout.activity_pais_list);
         showToobar(getResources().getString(R.string.paises_title),true);
         lsv_paises =(ListView) findViewById(R.id.lsv_paises);
-        downloadPaises();
+        avaibleConsult();
+    }
+
+    private void avaibleConsult(){
+        if (Utils.isNetworkAvailable(this)) {
+            downloadPaises();
+        } else {
+            //Toast.makeText(this, "Red No disponible para actualizar datos", Toast.LENGTH_SHORT).show();
+            getPaisFromDb();
+        }
     }
 
     // llamado del segundo plano
@@ -37,11 +53,24 @@ public class PaisListActivity extends AppCompatActivity implements  DownloadPais
         downloadPaisAsyncTask.delegate=this;
 
         try {
-            downloadPaisAsyncTask.execute(new URL("http://192.168.1.65/rest/index.php/clinicas/pais"));
+            downloadPaisAsyncTask.execute(new URL(getString(R.string.URLPAIS)));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
+    }
+    //select pais sqlite
+    private void getPaisFromDb() {
+        ClinicasDbHelper clinicasDbHelper = new ClinicasDbHelper(this);
+        SQLiteDatabase database = clinicasDbHelper.getReadableDatabase();
+        Cursor cursor=database.query(true,ClinicasContract.ClinicasColumns.TABLE_NAME, new String[] { ClinicasContract.ClinicasColumns.CLINICACOUNTRY }, null, null, null, null, null, null);
+        ArrayList <Pais> paisList = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            String clinicaCountry=cursor.getString(0);
+            paisList.add(new Pais(clinicaCountry));
+        }
+        cursor.close();
+        mostrarPaisList(paisList);
     }
 
     //respuesta de segundo plano

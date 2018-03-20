@@ -1,6 +1,8 @@
 package com.hooki.bunapp.views;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +14,9 @@ import com.hooki.bunapp.Adapters.Estados;
 import com.hooki.bunapp.Adapters.EstadosAdapter;
 import com.hooki.bunapp.AsyncTask.DownloadEdoAsyncTask;
 import com.hooki.bunapp.R;
+import com.hooki.bunapp.SqliteDb.ClinicasContract;
+import com.hooki.bunapp.SqliteDb.ClinicasDbHelper;
+import com.hooki.bunapp.Utils.Utils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,15 +35,40 @@ public class EdosListActivity extends AppCompatActivity implements  DownloadEdoA
         lsv_estados =(ListView) findViewById(R.id.lsv_estados);
         paisReceived = getIntent();
         pais=paisReceived.getStringExtra("pais");
-        downloadEstados();
+        avaibleConsult();
     }
+
+    private void avaibleConsult(){
+        if (Utils.isNetworkAvailable(this)) {
+            downloadEstados();
+        } else {
+            //Toast.makeText(this, "Red No disponible para actualizar datos", Toast.LENGTH_SHORT).show();
+            getEstadosFromDb();
+        }
+    }
+
+
+    //Select estados
+    private void getEstadosFromDb() {
+        ClinicasDbHelper clinicasDbHelper = new ClinicasDbHelper(this);
+        SQLiteDatabase database = clinicasDbHelper.getReadableDatabase();
+        Cursor cursor=database.query(true, ClinicasContract.ClinicasColumns.TABLE_NAME, new String[] { ClinicasContract.ClinicasColumns.CLINICASTATE  }, "country=?", new String[] {pais}, null, null, null, null);
+        ArrayList <Estados> estadosList = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            String nameEstados=cursor.getString(0);
+            estadosList.add(new Estados(nameEstados));
+        }
+        cursor.close();
+        mostrarPaisList(estadosList);
+    }
+
     // llamado del segundo plano
     private void downloadEstados(){
         DownloadEdoAsyncTask downloadEdoAsyncTask = new DownloadEdoAsyncTask(this);
         downloadEdoAsyncTask.delegate=this;
 
         try {
-            downloadEdoAsyncTask.execute(new URL("http://192.168.1.65/rest/index.php/clinicas/estados/"+pais));
+            downloadEdoAsyncTask.execute(new URL(getString(R.string.URLESTADOS)+pais));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

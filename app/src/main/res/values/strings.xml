@@ -17,6 +17,13 @@
     <string name="countries_searcher">TODOS</string>
     <string name="button_search">Buscar</string>
     <string name="contact_title">Contáctanos</string>
+    <string name="txt_gmail">Gmail</string>
     <string name="txt_facebook">Facebook</string>
     <string name="txt_route">Ruta</string>
+    <!-- Datos de coneccion-->
+    <string name="URLPAIS">http://192.168.1.65/rest/index.php/clinicas/pais</string>
+    <string name="URLESTADOS">http://192.168.1.65/rest/index.php/clinicas/estados/</string>
+    <string name="URLCLINICAS">http://192.168.1.65/rest/index.php/clinicas/</string>
+    <string name="URLCLINICASPAIS">http://192.168.1.65/rest/index.php/clinicas/por_pais/</string>
+    <string name="URLCLINICASPAISEDO">http://192.168.1.65/rest/index.php/clinicas/por_paisedo/</string>
 </resources>

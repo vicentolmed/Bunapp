@@ -14,18 +14,24 @@ public class Clinicas implements Parcelable {
     private String clinicaPhone1;
     private String clinicaPhone2;
     private String clinicaURLfb;
-    private String clinicaURLMaps;
+    private String clinicaLat;
+    private String clinicaLon;
+    private String clinicaCountry;
+    private String clinicaState;
     private String clinicaServicioDomicilio;
     private String clinicaServicioPension;
     private String clinicaServicio24hrs;
 
-    public Clinicas(String clinicaName, String clinicaAddress, String clinicaPhone1, String clinicaPhone2, String clinicaURLfb, String clinicaURLMaps, String clinicaServicioDomicilio, String clinicaServicioPension, String clinicaServicio24hrs) {
+    public Clinicas(String clinicaName, String clinicaAddress, String clinicaPhone1, String clinicaPhone2, String clinicaURLfb, String clinicaLat,String clinicaLon,String clinicaCountry,String clinicaState,String clinicaServicioDomicilio, String clinicaServicioPension, String clinicaServicio24hrs) {
         this.clinicaName = clinicaName;
         this.clinicaAddress = clinicaAddress;
         this.clinicaPhone1 = clinicaPhone1;
         this.clinicaPhone2 = clinicaPhone2;
         this.clinicaURLfb = clinicaURLfb;
-        this.clinicaURLMaps = clinicaURLMaps;
+        this.clinicaLat = clinicaLat;
+        this.clinicaLon=clinicaLon;
+        this.clinicaCountry=clinicaCountry;
+        this.clinicaState=clinicaState;
         this.clinicaServicioDomicilio = clinicaServicioDomicilio;
         this.clinicaServicioPension = clinicaServicioPension;
         this.clinicaServicio24hrs = clinicaServicio24hrs;
@@ -51,8 +57,20 @@ public class Clinicas implements Parcelable {
         return clinicaURLfb;
     }
 
-    public String getClinicaURLMaps() {
-        return clinicaURLMaps;
+    public String getClinicaLat() {
+        return clinicaLat;
+    }
+
+    public String getClinicaLon() {
+        return clinicaLon;
+    }
+
+    public String getClinicaCountry() {
+        return clinicaCountry;
+    }
+
+    public String getClinicaState() {
+        return clinicaState;
     }
 
     public String getClinicaServicioDomicilio() {
@@ -73,7 +91,10 @@ public class Clinicas implements Parcelable {
         clinicaPhone1 = in.readString();
         clinicaPhone2 = in.readString();
         clinicaURLfb = in.readString();
-        clinicaURLMaps = in.readString();
+        clinicaLat = in.readString();
+        clinicaLon=in.readString();
+        clinicaCountry=in.readString();
+        clinicaState=in.readString();
         clinicaServicioDomicilio = in.readString();
         clinicaServicioPension = in.readString();
         clinicaServicio24hrs = in.readString();
@@ -91,7 +112,10 @@ public class Clinicas implements Parcelable {
         dest.writeString(clinicaPhone1);
         dest.writeString(clinicaPhone2);
         dest.writeString(clinicaURLfb);
-        dest.writeString(clinicaURLMaps);
+        dest.writeString(clinicaLat);
+        dest.writeString(clinicaLon);
+        dest.writeString(clinicaCountry);
+        dest.writeString(clinicaState);
         dest.writeString(clinicaServicioDomicilio);
         dest.writeString(clinicaServicioPension);
         dest.writeString(clinicaServicio24hrs);

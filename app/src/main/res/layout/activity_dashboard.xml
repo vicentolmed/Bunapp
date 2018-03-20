@@ -83,7 +83,7 @@
                                 android:gravity="center"
                                 android:text="@string/description1_dashboard"
                                 android:padding="5dp"
-                                android:textSize="16dp"
+                                android:textSize="14dp"
                                 android:textColor="@color/secondary_text"/>
 
                         </LinearLayout>
@@ -132,7 +132,7 @@
                                 android:gravity="center"
                                 android:text="@string/description2_dashboard"
                                 android:padding="5dp"
-                                android:textSize="16dp"
+                                android:textSize="14dp"
                                 android:textColor="@color/secondary_text"/>
 
                         </LinearLayout>

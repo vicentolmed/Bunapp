@@ -20,6 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -41,6 +45,11 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
+            <TextView
+                android:id="@+id/txt_div"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -63,6 +72,10 @@
                     android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
                 </TextView>
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -84,12 +97,18 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
                 <ImageView
+                    android:clickable="true"
+                    android:onClick="goCallPhone1"
                     android:layout_width="50dp"
                     android:padding="1dp"
                     android:layout_height="50dp"
                     android:src="@drawable/telefono"
                     />
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -111,6 +130,8 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
                 <ImageView
+                    android:clickable="true"
+                    android:onClick="goCallPhone2"
                     android:layout_width="50dp"
                     android:padding="1dp"
                     android:layout_height="50dp"
@@ -195,7 +216,6 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -213,8 +233,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:src="@drawable/horas"/>
                     </LinearLayout>
                     <LinearLayout
@@ -224,9 +244,9 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:src="@drawable/servicio"/>
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/servdomicilio"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_weight="1"
@@ -235,9 +255,9 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
-                            android:layout_width="65dp"
-                            android:layout_height="65dp"
-                            android:src="@drawable/hotel"/>
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/pension"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -254,18 +274,17 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:layout_weight="1"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="Si"/>
+                        />
 
                     <TextView
                         android:id="@+id/txt_serv_domicilio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Si"
                         android:textStyle="bold"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:gravity="center"/>
 
                     <TextView
@@ -274,9 +293,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="Si"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
 
                 </LinearLayout>
